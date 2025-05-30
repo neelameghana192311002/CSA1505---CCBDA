@@ -1,0 +1,13 @@
+sudo apt update
+sudo apt install azure-cli -y
+az login
+
+
+
+echo "Hello from VM" > myfile.txt
+az storage blob upload \
+  --account-name studentstorage123 \
+  --container-name mycontainer \
+  --name myfile.txt \
+  --file myfile.txt \
+  --auth-mode login
